@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <script>
+    // Function to calculate multiplication of two numbers
+    function multiply(a, b) {
+      return a * b;
+    }
+
+    // Function to calculate division of two numbers
+    function divide(a, b) {
+      if (b === 0) {
+        return "Division by zero is not allowed";
+      }
+      return a / b;
+    }
+
+    function calculate() {
+      // Get user input for the first number
+      const num1 = parseFloat(document.getElementById("num1").value);
+
+      // Get user input for the second number
+      const num2 = parseFloat(document.getElementById("num2").value);
+
+      // Get the result elements
+      const multiplicationResult = document.getElementById("multiplicationResult");
+      const divisionResult = document.getElementById("divisionResult");
+
+      // Check if the user entered valid numbers
+      if (isNaN(num1) || isNaN(num2)) {
+        multiplicationResult.textContent = "Please enter valid numbers.";
+        divisionResult.textContent = "";
+      } else {
+        // Calculate and display the multiplication result
+        const multiplication = multiply(num1, num2);
+        multiplicationResult.textContent = `Multiplication: ${num1} * ${num2} = ${multiplication}`;
+
+        // Calculate and display the division result
+        const division = divide(num1, num2);
+        divisionResult.textContent = `Division: ${num1} / ${num2} = ${division}`;
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Calculator</h1>
+  <p>Enter two numbers and click the button to calculate multiplication and division:</p>
+  <label for="num1">First Number:</label>&ensp;&ensp;
+  <input type="text" id="num1" placeholder="Enter the first number">
+  <br><br>
+  <label for="num2">Second Number:</label>
+  <input type="text" id="num2" placeholder="Enter the second number">
+  <br><br>
+  <button onclick="calculate()">Calculate</button>
+  <br>
+  <div id="multiplicationResult"></div>
+  <div id="divisionResult"></div>
+</body>
+</html>
